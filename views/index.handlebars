@@ -1,38 +1,57 @@
-<h1>What's your favorite Burger</h1>
+<div class="page-header">
+  <h1>Burger Time</h1>
+</div>
 
-<h2>Burgers that I devoured this year</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{burger_name}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers I want to devour later</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{burger_name}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Burger to try</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="bur">Burger Name:</label>
-    <input type="text" id="bur" name="name">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Burgers that I would like to devour</h3>
   </div>
-
-  <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Yes, and it was great!<br>
-    <input type="radio" name="devoured" value="0"> Nope, add it to the list
+  <div class="panel-body">
+    <ul class="list-group">
+    {{#each burgers}}
+        {{#unless devoured}}
+        <li class="list-group-item">{{burger_name}}</li>
+        {{/unless}}
+    {{/each}}
+    </ul>
   </div>
+</div>
 
-  <button type="submit">Add Burger</button>
-</form>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Burgers that I have devoured</h3>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+    {{#each burgers}}
+        {{#if devoured}}
+        <li class="list-group-item">{{burger_name}}</li>
+        {{/if}}
+    {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add a burger to the list</h3>
+  </div>
+  <div class="panel-body">
+    <form class="create-form">
+        <div class="form-group">
+            <label for="bur">Burger Name:</label>
+            <input type="text" id="bur" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="devoured">Devoured?</label><br>
+            <input type="radio" name="devoured" value="1" checked> Yes, and it was great!<br>
+            <input type="radio" name="devoured" value="0"> Nope, add it to the list
+        </div>
+
+        <button type="submit">Add Burger</button>
+    </form>
+  </div>
+</div>
+
+
